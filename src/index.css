@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'SCP-Bauhaus';
-  src: url('/fonts/SCP-Bauhaus.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -21,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 0 72.2% 50.6%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -40,7 +34,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -51,10 +45,9 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* SCE специфичные цвета */
-    --sce-red: 0 80% 50%;
-    --sce-dark: 220 13% 18%;
-    --sce-light: 0 0% 95%;
+    /* SCE Specific Colors */
+    --sce-dark: 240 20% 15%;
+    --sce-red: 0 72.2% 50.6%;
   }
 
   .dark {
@@ -67,7 +60,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 0 72.2% 50.6%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -85,7 +78,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -94,11 +87,10 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-    
-    /* SCE специфичные цвета (темная тема) */
-    --sce-red: 0 80% 50%;
-    --sce-dark: 220 13% 15%;
-    --sce-light: 0 0% 92%;
+
+    /* SCE Specific Colors */
+    --sce-dark: 240 20% 10%;
+    --sce-red: 0 72.2% 50.6%;
   }
 }
 
@@ -108,25 +100,40 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-scp-bauhaus;
+    @apply bg-background text-foreground;
   }
 }
 
-/* SCE специфичные стили */
+@font-face {
+  font-family: 'SCP-Bauhaus';
+  src: url('/fonts/scpbauhaus.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer components {
   .sce-container {
-    @apply max-w-6xl mx-auto px-4 sm:px-6;
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
-  .sce-header {
-    @apply font-scp-bauhaus text-sce-red uppercase;
-  }
-  
+
   .sce-paper {
-    @apply bg-white dark:bg-sce-dark border border-gray-200 dark:border-gray-800 rounded-sm shadow-sm;
+    @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md shadow-sm;
+  }
+
+  .font-scp-bauhaus {
+    font-family: 'SCP-Bauhaus', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .bg-sce-dark {
+    @apply bg-[hsl(var(--sce-dark))];
+  }
+  
+  .text-sce-red {
+    @apply text-[hsl(var(--sce-red))];
+  }
+  
+  .bg-sce-red {
+    @apply bg-[hsl(var(--sce-red))];
   }
 }

@@ -18,10 +18,6 @@ export default {
 			}
 		},
 		extend: {
-			fontFamily: {
-				'scp-bauhaus': ['SCP-Bauhaus', 'sans-serif'],
-				'sans': ['Inter', 'sans-serif'],
-			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -66,11 +62,8 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				sce: {
-					red: 'hsl(var(--sce-red))',
-					dark: 'hsl(var(--sce-dark))',
-					light: 'hsl(var(--sce-light))',
-				}
+				'sce-dark': 'hsl(var(--sce-dark))',
+				'sce-red': 'hsl(var(--sce-red))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -98,7 +91,11 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+			},
+			fontFamily: {
+				'scp-bauhaus': ['SCP-Bauhaus', 'ui-sans-serif', 'system-ui'],
+				'mono': ['IBM Plex Mono', 'monospace']
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
